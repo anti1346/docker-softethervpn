@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   softether:
-    image: mt/softether
+    image: anti1346/softether
     build: .
     container_name: softether_vpn
     restart: unless-stopped
