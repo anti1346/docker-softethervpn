@@ -1,2 +1,2 @@
 logs
-config/backup.vpn_server.config
+config/backup.vpn_server.config/*.config
