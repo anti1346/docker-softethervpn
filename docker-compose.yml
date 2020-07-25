@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+
+  softether:
+    image: mt/softether
+    build: .
+    container_name: softether_vpn
+    restart: unless-stopped
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+      #- './config/vpn_server.config:/usr/local/vpnserver/vpn_server.config'
+      #- './config/chain_certs:/opt/vpnserver/chain_certs'
+      - './logs/packet_log:/usr/local/vpnserver/packet_log'
+      - './logs/security_log:/usr/local/vpnserver/security_log'
+      - './logs/server_log:/usr/local/vpnserver/server_log'
+      - './config/backup.vpn_server.config:/usr/local/vpnserver/backup.vpn_server.config'
+    privileged: true
+    #network_mode: host
+    ports:
+      - '443:443'
+      - '992:992'
+      - '1194:1194'
+      - '5555:5555'
