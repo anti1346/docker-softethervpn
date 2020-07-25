@@ -6,14 +6,16 @@ services:
     build: .
     container_name: softether_vpn
     restart: unless-stopped
+    environment:
+      APP_ROOT: /usr/local
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
-      #- './config/vpn_server.config:/usr/local/vpnserver/vpn_server.config'
-      #- './config/chain_certs:/opt/vpnserver/chain_certs'
-      - './logs/packet_log:/usr/local/vpnserver/packet_log'
-      - './logs/security_log:/usr/local/vpnserver/security_log'
-      - './logs/server_log:/usr/local/vpnserver/server_log'
-      - './config/backup.vpn_server.config:/usr/local/vpnserver/backup.vpn_server.config'
+      #- './config/vpn_server.config:${APP_ROOT}/vpnserver/vpn_server.config'
+      #- './config/chain_certs:${APP_ROOT}/vpnserver/chain_certs'
+      - './logs/packet_log:${APP_ROOT}/vpnserver/packet_log'
+      - './logs/security_log:${APP_ROOT}/vpnserver/security_log'
+      - './logs/server_log:${APP_ROOT}/vpnserver/server_log'
+      - './config/backup.vpn_server.config:${APP_ROOT}/vpnserver/backup.vpn_server.config'
     privileged: true
     #network_mode: host
     ports:
