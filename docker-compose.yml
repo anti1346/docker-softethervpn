@@ -2,9 +2,9 @@ version: '3.7'
 services:
 
   softether:
-    image: anti1346/softether
+    image: anti1346/softethervpn
     build: .
-    container_name: softether_vpn
+    container_name: softether
     restart: unless-stopped
     environment:
       APP_ROOT: /usr/local
